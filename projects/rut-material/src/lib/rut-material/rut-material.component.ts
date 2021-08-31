@@ -26,7 +26,7 @@ export class RutMaterialComponent implements OnInit {
     @Input() classField?: string = '';
     @Input() classHint?: string = '';
     @Input() paste?: boolean = true;
-    @Input() autocomplete?: 'on' | 'off' = 'off';
+    @Input() autocomplete?: 'on' | 'off' = 'on';
     @Input() errorRequired?: string = 'El RUT es requerido';
     @Input() errorInvalid?: string = 'El Rut es inválido';
     @Input() errorCustom?: string | boolean = false;
