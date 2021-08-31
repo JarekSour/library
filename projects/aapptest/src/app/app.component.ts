@@ -21,7 +21,5 @@ export class AppComponent {
 
     onSubmint() {
         console.log(this.formExample)
-
-        this.errorCustom = 'test custom error'
     }
 }

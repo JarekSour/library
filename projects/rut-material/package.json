@@ -1,6 +1,6 @@
 {
     "name": "@numetalsour/rut-material",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Simple RUT component to Angular Material with validators and formatting",
     "author": "Jarek Castro",
     "keywords": [

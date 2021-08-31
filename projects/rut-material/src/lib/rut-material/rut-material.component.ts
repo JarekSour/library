@@ -47,6 +47,11 @@ export class RutMaterialComponent implements OnInit {
         this.formParent.controls[this.name].valueChanges.subscribe(e => {
             this.formParent.controls[this.name].setValue(this.rutService.rut(e), { emitEvent: false });
         });
+
+        if(this.value.length > 0){
+            this.formParent.controls[this.name].markAsTouched();
+        }
+
         this.initValidators();
     }
 

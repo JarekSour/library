@@ -40,6 +40,10 @@ export class EmailMaterialComponent implements OnInit {
 
         this.formParent.controls[this.name].setValue(this.value);
 
+        if(this.value.length > 0){
+            this.formParent.controls[this.name].markAsTouched();
+        }
+
         this.initValidators();
     }
 

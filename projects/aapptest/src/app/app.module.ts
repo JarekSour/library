@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { RutMaterialModule } from '@numetalsour/rut-material';
+import { RutMaterialModule } from 'projects/rut-material/src/public-api';
 import { EmailMaterialModule } from 'projects/email-material/src/public-api';
 
 @NgModule({
