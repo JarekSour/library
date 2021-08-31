@@ -1,1 +1,22 @@
-<p>email-material works!</p>
+<div [formGroup]="formParent">
+    <mat-form-field [appearance]="appearance!" [class]="classField!"
+        [floatLabel]="floatLabel!">
+        <mat-label>{{label}}</mat-label>
+        <input
+            ngDefaultControl
+            matInput
+            emailDirective
+            type="email"
+            [formControlName]="name"
+            [placeholder]="placeholder!"
+            [disabled]="disabled!"
+            [readonly]="readonly"
+            [autocomplete]="autocomplete"
+            [canPaste]="paste!"
+            type="email">
+        <mat-hint *ngIf="hint" [class]="classHint!">{{hint}}</mat-hint>
+        <mat-error *ngIf="formParent.controls[name].errors?.required">{{errorRequired}}</mat-error>
+        <mat-error *ngIf="formParent.controls[name].errors?.invalid">{{errorInvalid}}</mat-error>
+        <mat-error *ngIf="errorCustom">{{ errorCustom }}</mat-error>
+    </mat-form-field>
+</div>

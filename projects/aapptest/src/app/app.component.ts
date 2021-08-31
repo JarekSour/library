@@ -8,16 +8,20 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AppComponent {
     title = 'aapptest';
+    errorCustom: string | boolean = false;
 
     formExample: FormGroup
 
     constructor(private fb: FormBuilder) {
         this.formExample = this.fb.group({
             rut_empresa: ['', []],
+            email_empresa: ['', []],
         })
     }
 
     onSubmint() {
         console.log(this.formExample)
+
+        this.errorCustom = 'test custom error'
     }
 }

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RutMaterialModule } from '@numetalsour/rut-material';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { RutMaterialModule } from '@numetalsour/rut-material';
+import { EmailMaterialModule } from 'projects/email-material/src/public-api';
 
 @NgModule({
     declarations: [
@@ -13,8 +14,11 @@ import { AppComponent } from './app.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        FormsModule,
+
+        // LIBS
         RutMaterialModule,
-        FormsModule
+        EmailMaterialModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "gen": "ng build rut-material && ng serve",
     "package-rut": "cd dist/rut-material && npm pack && cd .. && cd .. && npm install ./dist/rut-material/numetalsour-rut-material-1.0.0.tgz && ng serve",
-    "publicar-rut": "ng build rut-material --prod && cd dist/rut-material && npm publish --access public"
+    "publicar-rut": "ng build rut-material --prod && cd dist/rut-material && npm publish --access public",
+    "package-email": "ng build email-material && cd dist/email-material && npm pack && cd .. && cd .. && npm install ./dist/email-material/numetalsour-email-material-1.0.0.tgz && ng serve"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
+    "@numetalsour/email-material": "file:dist/email-material/numetalsour-email-material-1.0.0.tgz",
     "@numetalsour/rut-material": "file:dist/rut-material/numetalsour-rut-material-1.0.0.tgz",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
