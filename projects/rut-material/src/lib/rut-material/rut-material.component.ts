@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
-import { rutValidator } from 'dist/rut-material/lib/validation/rut.validator';
 import { RutMaterialService } from '../rut-material.service';
+import { rutValidator } from '../rut-material.validator';
 
 @Component({
     selector: 'rut-material',

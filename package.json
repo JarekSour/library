@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gen": "ng build rut-material && ng serve",
+    "package": "cd dist/rut-material && npm pack && cd .. && cd .. && npm install ./dist/rut-material/numetalsour-rut-material-1.0.0.tgz && ng serve",
     "publicar-rut": "ng build rut-material --prod && cd dist/rut-material && npm publish --access public"
   },
   "private": true,
@@ -23,6 +24,7 @@
     "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
+    "@numetalsour/rut-material": "file:dist/rut-material/numetalsour-rut-material-1.0.0.tgz",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

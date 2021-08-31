@@ -1,0 +1,13 @@
+<router-outlet></router-outlet>
+
+<form (ngSubmit)="onSubmint()">
+    <rut-material
+        [name]="'rut_empresa'"
+        [value]="'173426593'"
+        [label]="'Ingrese su RUT'"
+        [formParent]="formExample"
+        [required]="true"
+    ></rut-material>
+
+    <button type="submit">click!</button>
+</form>

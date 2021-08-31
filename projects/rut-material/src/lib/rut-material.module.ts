@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RutMaterialComponent } from './rut-material/rut-material.component';
 import { RutDirective } from './rut.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { RutDirective } from './rut.directive';
         ReactiveFormsModule,
         FormsModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        BrowserAnimationsModule
     ],
     exports: [
         RutMaterialComponent

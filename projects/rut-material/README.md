@@ -1,5 +1,5 @@
 
-# RutMaterial
+# RutMaterial for ReactiveForm Angular
 
 Simple input RUT with MaterialAngular
 
@@ -10,7 +10,7 @@ Simple input RUT with MaterialAngular
 
 | Parameter | Default    | Type     | Description                |
 | :-------- | :------- | :------- | :------------------------- |
-| `formParent`| '' | `string` | **Required**. parent FormBuilder  |
+| `formParent`| <FormGroup> | `<FormGroup>` | **Required**. parent FormBuilder  |
 | `label`|'Ingrese su RUT' | `string` | **Required**. text on label |
 | `name`|'rut' | `string` | **Required**. unique 'name' of control  |
 | `value`| ''| `string ` | Optional. to set initial value on input |
@@ -35,11 +35,11 @@ Simple input RUT with MaterialAngular
 ## Installation
 
 ```bash
+  ng add @angular/material
   npm i @numetalsour/rut-material
-  add "RutMaterialModule" to your "imports" in app.module.ts 
-  * FormsModule,
-  * ReactiveFormsModule
-
+  
+  add "RutMaterialModule" to your "imports" in x.module.ts 
+  add "FormsModule" to your "imports" in x.module.ts
 
   Check styles.x if you have
   @import "~@angular/material/prebuilt-themes/indigo-pink.css"
@@ -47,12 +47,11 @@ Simple input RUT with MaterialAngular
 ```
 HTML:
 ```bash
-<form [formGroup]="formExample" (ngSubmit)="onSubmint()">
+<form (ngSubmit)="onSubmint()">
 <rut-material
     [name]="'rut_empresa'"
     [value]="value"
     [label]="'Ingrese su RUT'"
-    [hint]="'ingresa asdasd'"
     [formParent]="formExample"
     [required]="true"
 ></rut-material>
