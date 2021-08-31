@@ -1,8 +1,8 @@
 
 # RutMaterial for ReactiveForm Angular
 
-Simple input RUT with MaterialAngular
-
+Simple input RUT with MaterialAngular, 
+validations, format & errors
 
 
 ## Reference
@@ -50,7 +50,7 @@ HTML:
 <form (ngSubmit)="onSubmint()">
 <rut-material
     [name]="'rut_empresa'"
-    [value]="value"
+    [value]="'12.345.678-9'"
     [label]="'Ingrese su RUT'"
     [formParent]="formExample"
     [required]="true"
