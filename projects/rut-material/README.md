@@ -1,8 +1,8 @@
 
 # RutMaterial for ReactiveForm Angular
 
-Simple input RUT with MaterialAngular
-
+Simple input RUT with MaterialAngular, 
+validations, format & errors
 
 
 ## Reference
