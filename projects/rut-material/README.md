@@ -37,8 +37,10 @@ Simple input RUT with MaterialAngular
 ```bash
   ng add @angular/material
   npm i @numetalsour/rut-material
+  
   add "RutMaterialModule" to your "imports" in x.module.ts 
   add "FormsModule" to your "imports" in x.module.ts
+
   Check styles.x if you have
   @import "~@angular/material/prebuilt-themes/indigo-pink.css"
   or another
