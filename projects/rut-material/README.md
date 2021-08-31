@@ -50,7 +50,7 @@ HTML:
 <form (ngSubmit)="onSubmint()">
 <rut-material
     [name]="'rut_empresa'"
-    [value]="12.345.678-9"
+    [value]="'12.345.678-9'"
     [label]="'Ingrese su RUT'"
     [formParent]="formExample"
     [required]="true"
