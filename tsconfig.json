@@ -5,6 +5,12 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "email-material": [
+        "dist/email-material/email-material",
+        "dist/email-material"
+      ]
+    },
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

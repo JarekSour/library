@@ -3,5 +3,246 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "rut-material-sour": {
+      "projectType": "library",
+      "root": "projects/rut-material-sour",
+      "sourceRoot": "projects/rut-material-sour/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/rut-material-sour/tsconfig.lib.json",
+            "project": "projects/rut-material-sour/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rut-material-sour/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rut-material-sour/src/test.ts",
+            "tsConfig": "projects/rut-material-sour/tsconfig.spec.json",
+            "karmaConfig": "projects/rut-material-sour/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rut-material-sour/tsconfig.lib.json",
+              "projects/rut-material-sour/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "libtest": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/libtest",
+      "sourceRoot": "projects/libtest/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/libtest",
+            "index": "projects/libtest/src/index.html",
+            "main": "projects/libtest/src/main.ts",
+            "polyfills": "projects/libtest/src/polyfills.ts",
+            "tsConfig": "projects/libtest/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/libtest/src/favicon.ico",
+              "projects/libtest/src/assets"
+            ],
+            "styles": [
+              "projects/libtest/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/libtest/src/environments/environment.ts",
+                  "with": "projects/libtest/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "libtest:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "libtest:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "libtest:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/libtest/src/test.ts",
+            "polyfills": "projects/libtest/src/polyfills.ts",
+            "tsConfig": "projects/libtest/tsconfig.spec.json",
+            "karmaConfig": "projects/libtest/karma.conf.js",
+            "assets": [
+              "projects/libtest/src/favicon.ico",
+              "projects/libtest/src/assets"
+            ],
+            "styles": [
+              "projects/libtest/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/libtest/tsconfig.app.json",
+              "projects/libtest/tsconfig.spec.json",
+              "projects/libtest/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/libtest/e2e/protractor.conf.js",
+            "devServerTarget": "libtest:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "libtest:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "rut-material": {
+      "projectType": "library",
+      "root": "projects/rut-material",
+      "sourceRoot": "projects/rut-material/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/rut-material/tsconfig.lib.json",
+            "project": "projects/rut-material/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rut-material/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rut-material/src/test.ts",
+            "tsConfig": "projects/rut-material/tsconfig.spec.json",
+            "karmaConfig": "projects/rut-material/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rut-material/tsconfig.lib.json",
+              "projects/rut-material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "email-material": {
+      "projectType": "library",
+      "root": "projects/email-material",
+      "sourceRoot": "projects/email-material/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/email-material/tsconfig.lib.json",
+            "project": "projects/email-material/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/email-material/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/email-material/src/test.ts",
+            "tsConfig": "projects/email-material/tsconfig.spec.json",
+            "karmaConfig": "projects/email-material/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/email-material/tsconfig.lib.json",
+              "projects/email-material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "rut-material-sour"
 }
