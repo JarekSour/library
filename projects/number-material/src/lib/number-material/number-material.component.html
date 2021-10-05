@@ -5,17 +5,22 @@
         <input
             ngDefaultControl
             matInput
-            emailDirective
+            numberDirective
             [formControlName]="name"
             [placeholder]="placeholder!"
             [disabled]="disabled!"
             [readonly]="readonly"
             [autocomplete]="autocomplete"
+
             [canPaste]="paste!"
-            type="email">
+            [allowDecimals]="allowDecimals!"
+            [allowSign]="allowSign!"
+            [decimalSeparator]="decimalSeparator!"
+            >
         <mat-hint *ngIf="hint" [class]="classHint!">{{hint}}</mat-hint>
         <mat-error *ngIf="formParent.controls[name].errors?.required">{{errorRequired}}</mat-error>
-        <mat-error *ngIf="formParent.controls[name].errors?.invalid">{{errorInvalid}}</mat-error>
+        <mat-error *ngIf="formParent.controls[name].errors?.min">{{errorMin}}</mat-error>
+        <mat-error *ngIf="formParent.controls[name].errors?.max">{{errorMax}}</mat-error>
         <mat-error *ngIf="errorCustom">{{ errorCustom }}</mat-error>
     </mat-form-field>
 </div>

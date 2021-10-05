@@ -23,6 +23,12 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "paths": {
+      "number-material": [
+        "dist/number-material/number-material",
+        "dist/number-material"
+      ]
+    },
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",

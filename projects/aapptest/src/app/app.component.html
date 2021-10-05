@@ -3,21 +3,55 @@
 <form (ngSubmit)="onSubmint()">
     <rut-material
         [name]="'rut_empresa'"
-        [value]="'123456789'"
-        [label]="'Ingrese su RUT'"
+        [value]="value"
+        [label]="label"
+        [placeholder]="placeholder"
         [formParent]="formExample"
-        [required]="false"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [errorCustom]="errorCustom"
     ></rut-material>
 
     <br><br>
 
     <email-material
         [name]="'email_empresa'"
-        [value]="'jarek.castrogmail.com'"
-        [label]="'Ingrese su correo electrónico'"
+        [value]="value"
+        [label]="label"
+        [placeholder]="placeholder"
         [formParent]="formExample"
-        [errorCustom]="errorCustom!"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [errorCustom]="errorCustom"
     ></email-material>
+
+    <br><br>
+
+
+    <number-material
+        [name]="'edad'"
+        [value]="value"
+        [label]="label"
+        [placeholder]="placeholder"
+        [formParent]="formExample"
+        [required]="required"
+        [minValue]="0"
+        [maxValue]="10"
+        [allowSign]="true"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [errorCustom]="errorCustom"
+    ></number-material>
+
+
+
+
+
+
+
+
 
 
     <br><br>

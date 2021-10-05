@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 import { RutMaterialService } from '../rut-material.service';
@@ -31,7 +31,7 @@ export class RutMaterialComponent implements OnInit {
     @Input() errorInvalid?: string = 'El Rut es inválido';
     @Input() errorCustom?: string | boolean = false;
 
-    constructor(private fb: FormBuilder, private rutService: RutMaterialService) {
+    constructor(private fb: FormBuilder, private rutService: RutMaterialService, private changeDetectorRef: ChangeDetectorRef) {
         this.formParent = this.fb.group({});
     }
 
@@ -47,30 +47,67 @@ export class RutMaterialComponent implements OnInit {
         this.formParent.controls[this.name].valueChanges.subscribe(e => {
             this.formParent.controls[this.name].setValue(this.rutService.rut(e), { emitEvent: false });
         });
-
-        if(this.value.length > 0){
-            this.formParent.controls[this.name].markAsTouched();
-        }
-
-        this.initValidators();
     }
 
     ngDoCheck() {
-        if (this.errorCustom) {
-            this.errorCustom = this.errorCustom;
-            this.formParent.controls[this.name].setErrors({ errorCustom: true });
-            this.formParent.controls[this.name].markAsTouched();
-        }
+        // if (this.errorCustom) {
+        //     this.errorCustom = this.errorCustom;
+        //     this.formParent.controls[this.name].setErrors({ errorCustom: true });
+        //     this.formParent.controls[this.name].markAsTouched();
+        // }
     }
 
-    initValidators() {
-        if (this.required) {
-            this.formParent.controls[this.name].setValidators([Validators.required, rutValidator.valid]);
+    ngOnChanges(changes: any): void {
+
+        console.log(changes)
+
+        if (changes.value) {
+            this.formParent.controls[this.name].setValue(changes.value.currentValue)
+            this.formParent.controls[this.name].markAsTouched();
         }
-        else {
-            this.formParent.controls[this.name].setValidators([rutValidator.valid]);
+
+        if (changes.disabled) {
+            if (this.disabled)
+                this.formParent.controls[this.name].disable()
+            else
+                this.formParent.controls[this.name].enable()
         }
-        this.formParent.controls[this.name].updateValueAndValidity();
+
+        if (changes.required) {
+            let errors = [rutValidator.valid]
+
+            if (changes.required.currentValue) {
+                errors.push(Validators.required)
+            }
+
+            this.required = changes.required.currentValue
+            this.formParent.controls[this.name].setValidators([...errors]);
+        }
+
+        if (changes.errorCustom) {
+            if (changes.errorCustom.currentValue == false) {
+                let errors = this.formParent.controls[this.name].errors
+
+                if (errors && Object.keys(errors!).length > 0)
+                    delete errors!.errorCustom
+
+                if (errors && Object.keys(errors!).length > 0) {
+                    this.formParent.controls[this.name].setErrors(errors);
+                } else {
+                    this.formParent.controls[this.name].setErrors(null);
+                }
+            } else {
+                let errors = this.formParent.controls[this.name].errors
+                if (errors == null) {
+                    this.formParent.controls[this.name].setErrors({ errorCustom: true })
+                }else{
+                    errors!['errorCustom'] = true
+                    this.formParent.controls[this.name].setErrors(errors);
+                }
+            }
+            this.errorCustom = changes.errorCustom.currentValue
+            this.formParent.controls[this.name].markAsTouched();
+        }
     }
 
 }

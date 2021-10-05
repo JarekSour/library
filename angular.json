@@ -238,6 +238,46 @@
           }
         }
       }
+    },
+    "number-material": {
+      "projectType": "library",
+      "root": "projects/number-material",
+      "sourceRoot": "projects/number-material/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/number-material/tsconfig.lib.json",
+            "project": "projects/number-material/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/number-material/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/number-material/src/test.ts",
+            "tsConfig": "projects/number-material/tsconfig.spec.json",
+            "karmaConfig": "projects/number-material/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/number-material/tsconfig.lib.json",
+              "projects/number-material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "aapptest"

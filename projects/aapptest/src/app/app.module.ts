@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { RutMaterialModule } from 'projects/rut-material/src/public-api';
 import { EmailMaterialModule } from 'projects/email-material/src/public-api';
+import { NumberMaterialModule } from 'projects/number-material/src/public-api';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { EmailMaterialModule } from 'projects/email-material/src/public-api';
 
         // LIBS
         RutMaterialModule,
-        EmailMaterialModule
+        EmailMaterialModule,
+        NumberMaterialModule
     ],
     providers: [],
     bootstrap: [AppComponent]
